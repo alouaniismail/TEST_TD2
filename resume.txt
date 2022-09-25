@@ -1,0 +1,10 @@
+1-Approche objets:
+tests unitaires faussaires:
+TestAutobus utilisera FauxPassager
+et de meme pour FauxVehicule.
+CAR:
+il y a dependance, pour tester une classe il faut la definition de l'autre classe
+=>interfaces et implementations de ces derniers via des objets factices.(<mocket object>)
+
+2-Développement des classes :(des 2classesen question)
+
