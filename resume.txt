@@ -7,4 +7,30 @@ il y a dependance, pour tester une classe il faut la definition de l'autre class
 =>interfaces et implementations de ces derniers via des objets factices.(<mocket object>)
 
 2-Développement des classes :(des 2classesen question)
+Les classes ont ete developpees.
+Le regroupement dans les bons folders a ete fait avec succes.
+Les tests faussaires passent au vert.
+Rq:
+il fallait ajouter un tableau de passagers comme sur le code C avec la taille trivialement à l'instanciation d'instance de passager et servir du diagramme UML ici pour ajouter deux fonctions private void ajouterPassager(Passager p) et private void enleverPassager(Passager p) et s'en servir par la suite. L'ordre des opérations importe peu.
 
+3-Kit de développement relatif à la classe String de JavaDOC:
+
+    //Pour employer l’opérateur == à la place de la méthode equals(), quelle hypothèse est faite sur les instances de String représentant les chaînes de caractères littérales ?
+    
+    >>>Pas d'instanciation, que des déclarations car les instanciations c'est comme des malloc donc a chaque == même si le contenu est juste, cela échouera, d'où l'importance de déclaration normale pour utiliser == à la place de equals qui au final soummetront le même résultat. 
+    
+    *la méthode equals(Object anObject) :
+
+    //Comment est calculée l’égalité dans le code de cette méthode ?
+    
+    ->L'égalité pas par rapport à la référence mais le contenu lui-même.
+
+    //Expliquer l’intérêt de la première ligne du code de la méthode.
+    signaler si c'est pas une instanceof String pour retourner faux sinon continuer (!perte de temps) : chiffrer chaque sous charactère et le comparer avec l'autre indépendamment de la structure String en classes mais du contenu lui-même en coeur des 2 instances String. 
+
+    //Expliquer pourquoi l’instruction  String anotherString =   (String) anObject est-elle nécessaire ?
+    conserver les méthodes d'héritage de anObject tout en assurant d'éviter à la compilation une erreur de typage statique. Faire un type casting permet de ne pas affecter des valeurs aléatoires à des variables de type différents. C'est genre une protection contre les problèmes de lvalue error par exemple.
+    
+    //La conversion de type échouera-t-elle à la compilation ou à l’exécution ?
+Elle échoue à l'execution, à la compilation c'est interprete comme une classe héritante qui doit être transformé en un String (code bytecode compilé) mais c'est à l'execution que cela ne tient pas la route. Donc c'est à l'execution pas à la compilation. Rq: un fichier test.java approfondit cette notion et introduit le mot cle intern qui est en lui-même une méthode pour tester avec == l'égalité de deux instanciations et avoir un true tous simple en faisant un String s2=s1.intern() sur la deuxième instance. Cela marche même en deux FOIS sur les instances implicites à la comparaison soit avec == ou equals. 
+ FIN_TD3.
